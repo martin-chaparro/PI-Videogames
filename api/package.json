@@ -13,7 +13,6 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "git-commit-msg-linter": "^3.2.8",
     "nodemon": "^2.0.15"
   }
 }
