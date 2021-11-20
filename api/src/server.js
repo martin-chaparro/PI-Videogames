@@ -21,6 +21,11 @@ class Server {
 		this.routes();
 	}
 
+	// express instance getter
+	getExpressInstance() {
+		return this.app;
+	}
+
 	middlewares() {
 		//CORS
 		this.app.use(cors());

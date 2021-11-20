@@ -1,5 +1,5 @@
 const getHome = async (request, response) => {
-	response.json({
+	response.send({
 		msg: 'Home Controller - Works',
 	});
 };
