@@ -8,3 +8,6 @@ node_modules/
 # lockfile
 yarn.lock
 
+#docker
+docker-compose.yaml
+docker/database/posgres/data
