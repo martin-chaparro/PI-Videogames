@@ -4,13 +4,16 @@ const ConfigDB = require('../config/database');
 const connection = new Sequelize(ConfigDB);
 
 const Videogame = require('../models/Videogame')
+const Genre = require('../models/Genre')
 
 
 // Models Init
 Videogame.init(connection)
-//User.init(connection);
+Genre.init(connection)
+
 
 // Associate
-// User.associate(connection.models);
+Videogame.associate(connection.models)
+Genre.associate(connection.models)
 
 module.exports = connection;
