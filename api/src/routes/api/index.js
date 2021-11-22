@@ -1,11 +1,10 @@
-
-  
 const { Router } = require('express');
-
-const { getHome } = require('../../controllers/homeController')
+const videogameRoutes = require('./videogames')
+const genresRoutes = require('./genres')
 
 const router = new Router();
 
-router.get('/', getHome );
+router.use('/videogames',videogameRoutes)
+router.use('/genres',genresRoutes)
 
 module.exports = router;
