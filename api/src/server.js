@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const connection = require('./database/connection');
+const { getAllGenres } = require('./services/rawg/rawgService');
+const Genre = require('./models/Genre');
 
 class Server {
 	constructor() {
@@ -60,15 +62,28 @@ class Server {
 			}
 			console.log('||--> Database connection established..: <--||');
 		} catch (error) {
-			console.log('Could not connect to the database..');
+			console.log('Could not connect to the database...');
 			console.log(error);
 		}
 	}
 
+	async seedGenres() {
+		console.log('||--> Seed database...: <--||');
+		try {
+			const genres = await getAllGenres();
+			await Genre.bulkCreate(genres)
+			console.log('||--> Seed complete...: <--||');
+
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
 	start() {
-		this.app.listen(this.port, () => {
+		this.app.listen(this.port, async () => {
 			console.log(`||--> Http server running in port:${this.port} <--||`);
-			this.connectDb();
+			await this.connectDb();
+			await this.seedGenres()
 		});
 	}
 }

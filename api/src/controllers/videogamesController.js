@@ -1,33 +1,52 @@
-const getGames = (request, response) => {
+const { response } = require('express');
+const {
+	getAllVideogames,
+	searchAllGames,
+	getGame: getApiGame,
+	getAllGenres
+} = require('../services/rawg/rawgService');
+
+const Videogame = require('../models/Videogame');
+
+const getGames = async (request, response) => {
 	const { name } = request.query;
 
-	if (name) {
-		return response.send({
-			msg: 'Get Games Controller - Search - Works',
-			search: name,
-		});
+	if (!name) {
+		const allApiGames = await getAllVideogames();
+		return response.status(200).json(allApiGames);
 	}
 
-	return response.send({
-		msg: 'Get Games Controller - Works',
-	});
+	const searchApiGames = await searchAllGames(name);
+
+	return response.json(searchApiGames);
 };
 
-const getGame = (request, response) => {
+const getGame = async (request, response) => {
 	const { gameId } = request.params;
 
-	response.send({
-		msg: 'Get Game Controller - Works',
-		gameId,
-	});
+	const apiGame = await getApiGame(gameId);
+	//console.log(apiGame)
+	response.send(apiGame);
 };
 
-const createGame = (request, response) => {
-	const { name } = request.body;
-	response.send({
-		msg: 'create Game Controller - Works',
-		name
+const createGame = async (request, response) => {
+	const { name, description, released, rating, platforms, genres } =
+		request.body;
+
+	const CreatedGame = await Videogame.create({
+		name,
+		description,
+		released,
+		rating,
+		platforms,
 	});
+
+	const game = await CreatedGame.setGenres(genres)
+
+	response.send(CreatedGame);
+
+	
+
 };
 
 module.exports = { getGames, getGame, createGame };
