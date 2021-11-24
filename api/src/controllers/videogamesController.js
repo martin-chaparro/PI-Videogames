@@ -9,6 +9,9 @@ const {
 
 const Videogame = require('../models/Videogame');
 
+const { validationResult } = require('express-validator')
+
+
 const getGames = async (request, response) => {
 	const { name } = request.query;
 
@@ -90,6 +93,13 @@ const getGame = async (request, response) => {
 const createGame = async (request, response) => {
 	const { name, description, released, rating, platforms, genres } =
 		request.body;
+
+	const errors = validationResult(request)
+
+	if (!errors.isEmpty()) {
+		return response.status(400).json({errors:errors.array()})
+	}
+	
 
 	try {
 		const CreatedGame = await Videogame.create({
