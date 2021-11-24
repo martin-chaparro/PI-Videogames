@@ -19,16 +19,18 @@ class Videogame extends Model {
 					allowNull: false,
 				},
 				released: {
-					type: DataTypes.STRING,
+					type: DataTypes.DATEONLY,
 					allowNull: true,
+					defaultValue: DataTypes.NOW
 				},
 				rating: {
 					type: DataTypes.FLOAT,
 					allowNull: true,
+					defaultValue:0
 				},
 				platforms: {
-					type: DataTypes.ARRAY(DataTypes.STRING),
-					allowNull: true,
+					type: DataTypes.ARRAY(DataTypes.JSON),
+					allowNull: false,
 				},
 				inDb: {
 					type: DataTypes.BOOLEAN,
