@@ -1,0 +1,4 @@
+aside {
+	background-color: yellowgreen;
+	grid-column: col-start / span 3;
+}

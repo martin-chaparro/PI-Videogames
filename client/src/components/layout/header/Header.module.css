@@ -1,0 +1,6 @@
+header {
+	background-color: orange;
+	grid-column: col-start / span 12;
+	height: 10vh;
+
+}

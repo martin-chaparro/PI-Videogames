@@ -1,0 +1,5 @@
+
+.content{
+	background-color: coral;
+	grid-column: col-start 4 / span 10;
+}

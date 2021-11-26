@@ -1,0 +1,5 @@
+main {
+	background-color: magenta;
+	grid-column: col-start 1 / span 12;
+	height: 82vh;
+}

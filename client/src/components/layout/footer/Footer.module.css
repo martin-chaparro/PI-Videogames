@@ -1,0 +1,5 @@
+footer {
+	background-color: saddlebrown;
+	grid-column: col-start / span 12;
+	height: 8vh;
+}

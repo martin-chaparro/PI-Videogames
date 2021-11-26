@@ -1,12 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomeScreen } from '../components/pages/home/HomeScreen';
+import { Home } from '../components/pages/home/Home';
+import { NewGame } from '../components/pages/home/newgame/Newgame';
+import { ViewGame } from '../components/pages/home/viewgame/ViewGame';
 
 export const HomeRouter = () => {
 	return (
 		<div>
-			<h1>Home Nav</h1>
 			<Routes>
-				<Route path="/" element={<HomeScreen />} />
+				<Route path="/new" element={<NewGame />} />
+				<Route path="/view" element={<ViewGame />} />
+				<Route path="*" element={<Home />} />
 			</Routes>
 		</div>
 	);
