@@ -1,6 +1,48 @@
 header {
-	background-color: orange;
+	background-color: var(--bg-color);
 	grid-column: col-start / span 12;
 	height: 10vh;
+}
 
+nav {
+	width: 100%;
+	box-shadow: var(--box-shadow);
+	height: 10vh;
+	color: var(--color);
+}
+
+.title {
+	grid-column: col-start / span 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.title h1 {
+	font-weight: bold;
+}
+
+.navBar {
+	grid-column: col-start 4 / span 6;
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: center;
+}
+
+.btn {
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 0.5rem;
+	font-size: 1.5em;
+	box-shadow: var(--box-shadow);
+	width: 6em;
+	height: 3em;
+}
+
+.contact {
+	grid-column: col-start 10 / span 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

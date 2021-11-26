@@ -1,15 +1,17 @@
-import { Footer } from '../../layout/footer/Footer';
 import { Header } from '../../layout/header/Header';
 import { Main } from '../../layout/main/Main';
+
+import styles from './Landing.module.css';
 
 export const Landing = () => {
 	return (
 		<div className="wrapper">
 			<Header />
 			<Main>
-				<h1>Landing</h1>
+				<div className={styles.container}>
+					<button className={styles.btn}>Start</button>
+				</div>
 			</Main>
-			<Footer />
 		</div>
 	);
 };

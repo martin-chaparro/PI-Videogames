@@ -8,7 +8,7 @@ import { Main } from '../../layout/main/Main';
 export const Home = () => {
 	return (
 		<div className="wrapper">
-			<Header />
+			<Header displaNav={true} />
 			<Main>
 				<Aside></Aside>
 				<Content/>
