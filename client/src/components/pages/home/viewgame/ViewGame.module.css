@@ -1,0 +1,26 @@
+.imgColumn{
+    grid-column: col-start / span 6;
+    padding-top: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgContainer{
+    background-color: gold;
+    width: 90%;
+    overflow: hidden;
+}
+
+.imgContainer img {
+    width: 100%;
+}
+.dataColumn{
+    grid-column: col-start 7 / span 6;
+    padding-top: 3em;
+    
+}
+
+.dataContainer{
+    background-color: greenyellow;
+}
