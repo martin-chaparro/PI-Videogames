@@ -26,14 +26,14 @@ nav {
 	grid-column: col-start 4 / span 6;
 	display: inline-flex;
 	flex-wrap: wrap;
-	gap: 12px;
+	gap: 1.2em;
 	align-items: center;
 }
 
 .btn {
 	color: var(--color);
 	background-color: var(--bg-color);
-	border-radius: 0.5rem;
+	border-radius: 0.5em;
 	font-size: 1.5em;
 	box-shadow: var(--box-shadow);
 	width: 6em;

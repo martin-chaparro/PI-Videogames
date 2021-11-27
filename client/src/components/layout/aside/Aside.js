@@ -1,10 +1,16 @@
 
-import './Aside.module.css'
+import styles from './Aside.module.css'
 
 export const Aside = () => {
     return (
         <aside>
-            <h1>Aside component</h1>
+            <div className={styles.controlBox}>
+                <div className={styles.filterBox}>Busqueda</div>
+                <div className={styles.filterBox}>Orden ASC/DES</div>
+                <div className={styles.filterBox}>Orden Rating</div>
+                <div className={styles.filterBox}>Filtro Genero</div>
+                <div className={styles.filterBox}>Filtro Creado o existente</div>
+            </div>
         </aside>
     )
 }

@@ -1,0 +1,30 @@
+.paginationBox {
+	width: 100%;
+	background-color: antiquewhite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pagination {
+	background-color: brown;
+	height: 5em;
+	display: flex;
+	gap: 1em;
+}
+
+.cards {
+	background-color: burlywood;
+	display: grid;
+	grid-template-columns: repeat(12, [col-start] 1fr);
+	gap: 2em;
+}
+.btn {
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 0.5em;
+	font-size: 1.5em;
+	box-shadow: var(--box-shadow);
+	width: 6em;
+	height: 3em;
+}

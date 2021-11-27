@@ -1,4 +1,25 @@
 aside {
-	background-color: yellowgreen;
+	background-color: fuchsia;
 	grid-column: col-start / span 3;
+	padding-top: 3em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 2em;
+}
+
+.controlBox {
+	background-color: yellowgreen;
+	min-height: calc(90vh - 5em);
+	display: flex;
+	flex-flow: column;
+	flex-wrap: wrap;
+	gap: 1em;
+
+}
+
+.filterBox {
+	background-color: yellowgreen;
+	width: 100%;
+	height: 3em;
+
 }

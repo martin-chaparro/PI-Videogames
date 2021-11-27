@@ -1,0 +1,21 @@
+.card {
+    grid-column-end: span 4;
+    background-color: gold;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardImageContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.cardImageContainer img {
+    width: 100%;
+    
+}
+
+.cardContent{
+    padding: .2em
+}

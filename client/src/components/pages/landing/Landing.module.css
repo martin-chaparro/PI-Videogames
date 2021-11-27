@@ -12,14 +12,14 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	margin-top: 2em;
-	height: calc(90vh - 2em);
+	min-height: calc(90vh - 2em);
 	display: flex;
 	justify-content: center;
 }
 .btn {
 	color: var(--color);
 	background-color: var(--bg-color);
-	border-radius: 0.5rem;
+	border-radius: 0.5em;
 	width: 16em;
 	height: 5em;
 	margin-top: 5em;
