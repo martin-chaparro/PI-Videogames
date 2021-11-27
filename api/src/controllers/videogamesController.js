@@ -8,9 +8,9 @@ const {
 } = require('../services/rawg/rawgService');
 
 const Videogame = require('../models/Videogame');
+const Genre = require('../models/Genre');
 
-const { validationResult } = require('express-validator')
-
+const { validationResult } = require('express-validator');
 
 const getGames = async (request, response) => {
 	const { name } = request.query;
@@ -20,6 +20,11 @@ const getGames = async (request, response) => {
 			const allDbGamesPromese = Videogame.findAll({
 				attributes: {
 					exclude: ['createdAt', 'updatedAt', 'description'],
+				},
+				include: {
+					model: Genre,
+					attributes: ['id', 'name'],
+					through: { attributes: [] },
 				},
 			});
 			const allApiGamesPromese = getAllVideogames();
@@ -42,6 +47,11 @@ const getGames = async (request, response) => {
 		const searchDbGamesPromese = Videogame.findAll({
 			where: { name: { [Op.iLike]: `%${name}%` } },
 			attributes: { exclude: ['createdAt', 'updatedAt', 'description'] },
+			include: {
+				model: Genre,
+				attributes: ['id', 'name'],
+				through: { attributes: [] },
+			},
 		});
 
 		const searchApiGamesPromese = searchAllGames(name);
@@ -73,7 +83,16 @@ const getGame = async (request, response) => {
 		)
 	) {
 		try {
-			const game = await Videogame.findByPk(gameId);
+			const game = await Videogame.findByPk(gameId, {
+				attributes: {
+					exclude: ['createdAt', 'updatedAt'],
+				},
+				include: {
+					model: Genre,
+					attributes: ['id', 'name'],
+					through: { attributes: [] },
+				},
+			});
 			return response.status(200).json(game);
 		} catch (error) {
 			console.log(error);
@@ -91,15 +110,21 @@ const getGame = async (request, response) => {
 };
 
 const createGame = async (request, response) => {
-	const { name, description, released, rating, background_image,platforms, genres } =
-		request.body;
+	const {
+		name,
+		description,
+		released,
+		rating,
+		background_image,
+		platforms,
+		genres,
+	} = request.body;
 
-	const errors = validationResult(request)
+	const errors = validationResult(request);
 
 	if (!errors.isEmpty()) {
-		return response.status(400).json({errors:errors.array()})
+		return response.status(400).json({ errors: errors.array() });
 	}
-	
 
 	try {
 		const CreatedGame = await Videogame.create({
