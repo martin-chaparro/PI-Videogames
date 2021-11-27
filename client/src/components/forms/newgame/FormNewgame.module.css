@@ -1,0 +1,8 @@
+.formBox{
+    background-color: lavender;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-left: 1em;
+}
