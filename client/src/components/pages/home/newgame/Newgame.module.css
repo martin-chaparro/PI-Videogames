@@ -1,0 +1,15 @@
+
+.formColumn{
+    background-color: khaki;
+    grid-column: col-start 4 / span 6;
+    padding-top: 3em;
+}
+
+.formBox{
+    background-color: lavender;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-left: 1em;
+}
