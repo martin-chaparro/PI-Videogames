@@ -21,25 +21,27 @@ class Videogame extends Model {
 				released: {
 					type: DataTypes.DATEONLY,
 					allowNull: true,
-					defaultValue: DataTypes.NOW
+					defaultValue: DataTypes.NOW,
 				},
 				rating: {
 					type: DataTypes.FLOAT,
 					allowNull: true,
-					defaultValue:0
+					defaultValue: 0,
 				},
-				background_image:{
+				background_image: {
 					type: DataTypes.STRING,
-					allowNull:false,
-					defaultValue:'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg',
-					set(value){
+					allowNull: false,
+					defaultValue:
+						'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg',
+					set(value) {
 						if (value === '') {
 							this.setDataValue(
 								'background_image',
 								'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg'
-							)
+							);
 						}
-					}
+						this.setDataValue('background_image', value);
+					},
 				},
 				platforms: {
 					type: DataTypes.ARRAY(DataTypes.JSON),
