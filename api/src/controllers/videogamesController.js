@@ -91,7 +91,7 @@ const getGame = async (request, response) => {
 };
 
 const createGame = async (request, response) => {
-	const { name, description, released, rating, platforms, genres } =
+	const { name, description, released, rating, background_image,platforms, genres } =
 		request.body;
 
 	const errors = validationResult(request)
@@ -107,6 +107,7 @@ const createGame = async (request, response) => {
 			description,
 			released,
 			rating,
+			background_image,
 			platforms,
 		});
 		const game = await CreatedGame.setGenres(genres);

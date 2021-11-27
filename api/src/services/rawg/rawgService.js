@@ -36,7 +36,7 @@ const getAllVideogames = async () => {
 				id: game.id,
 				name: game.name,
 				released: game.released,
-				image: game.background_image,
+				background_image: game.background_image,
 				rating: game.rating,
 				genres: game.genres.map((genre) => {
 					return {
@@ -70,7 +70,7 @@ const searchAllGames = async (term) => {
 				id: game.id,
 				name: game.name,
 				released: game.released,
-				image: game.background_image,
+				background_image: game.background_image,
 				rating: game.rating,
 				genres: game.genres.map((genre) => {
 					return {
@@ -101,7 +101,7 @@ const getGame = async (gameId) => {
 			name: apiGame.name,
 			description: apiGame.description,
 			released: apiGame.released,
-			image: apiGame.background_image,
+			background_image: apiGame.background_image,
 			rating: apiGame.rating,
 			genres: apiGame.genres.map((genre) => {
 				return {

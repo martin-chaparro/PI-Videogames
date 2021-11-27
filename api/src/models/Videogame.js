@@ -28,6 +28,19 @@ class Videogame extends Model {
 					allowNull: true,
 					defaultValue:0
 				},
+				background_image:{
+					type: DataTypes.STRING,
+					allowNull:false,
+					defaultValue:'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg',
+					set(value){
+						if (value === '') {
+							this.setDataValue(
+								'background_image',
+								'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg'
+							)
+						}
+					}
+				},
 				platforms: {
 					type: DataTypes.ARRAY(DataTypes.JSON),
 					allowNull: false,
