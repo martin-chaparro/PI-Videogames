@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import api from '../../services/api';
 import styles from './FormNewgame.module.css';
 
 export const FormNewgame = () => {
-	const [formValues, setFormValues] = useState({
+	const initialFormValues = {
 		name: '',
 		description: '',
 		released: '',
@@ -10,7 +11,9 @@ export const FormNewgame = () => {
 		background_image: '',
 		genres: [],
 		platforms: [],
-	});
+	};
+
+	const [formValues, setFormValues] = useState(initialFormValues);
 
 	const { name, description, released, rating, background_image } = formValues;
 
@@ -56,9 +59,16 @@ export const FormNewgame = () => {
 		}
 	};
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-		console.log(formValues);
+		
+		try {
+			await api.post('/videogame', formValues);
+			alert('Game created successfully!');
+			setFormValues(initialFormValues);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
