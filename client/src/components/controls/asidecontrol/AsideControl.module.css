@@ -1,0 +1,35 @@
+.controlBox {
+	background-color: yellowgreen;
+	min-height: calc(90vh - 5em);
+	display: flex;
+	flex-flow: column;
+	flex-wrap: wrap;
+	gap: 1em;
+
+}
+
+.filterBox {
+	background-color: yellowgreen;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.filterBox input {
+	font-size: 2em;
+}
+
+
+.filterBox button {
+	font-size: 2em;
+}
+
+.controlBox label {
+	font-size: 2em;
+}
+
+.filterBox select {
+	font-size: 2em;
+}

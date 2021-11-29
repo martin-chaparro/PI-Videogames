@@ -13,12 +13,6 @@
 	gap: 1em;
 }
 
-.cards {
-	background-color: burlywood;
-	display: grid;
-	grid-template-columns: repeat(12, [col-start] 1fr);
-	gap: 2em;
-}
 .btn {
 	color: var(--color);
 	background-color: var(--bg-color);

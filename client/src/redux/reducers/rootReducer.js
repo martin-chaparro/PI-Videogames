@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import { uiReducer } from './uiReducer';
+
+import {videogamesReducer} from './videogames'
 
 
 export const rootReducer = combineReducers({
-    ui:uiReducer
+    videogames: videogamesReducer
 });
