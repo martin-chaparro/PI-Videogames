@@ -65,9 +65,11 @@ const getGames = async (request, response) => {
 
 		if (totalSearchGames.length > 0) {
 			return response.status(200).json(totalSearchGames);
+		}else {
+			return response.status(404).json({ msg: 'No se encontraron resultados' });
+
 		}
 
-		return response.status(400).json({ msg: 'No se encontraron resultados' });
 	} catch (error) {
 		console.log(error);
 		return response.status(500).json({ msg: 'Server Error' });
