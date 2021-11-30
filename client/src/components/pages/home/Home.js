@@ -13,15 +13,17 @@ import { AsideControl } from '../../controls/asidecontrol/AsideControl';
 export const Home = () => {
 	const dispatch = useDispatch();
 
-	const {videogames}  = useSelector((state) => state.videogames);
+	const { videogames } = useSelector((state) => state.videogames);
 
+	const [currentPage, setCurrentPage] = useState(1);
+	const gamesPerPage = 15;
 
-	const [currentPage, setCurrentPage] = useState(1)
-    const gamesPerPage = 15
-	
-    let currentVideogames = videogames.slice((currentPage * gamesPerPage - gamesPerPage), (currentPage * gamesPerPage))
+	let currentVideogames = videogames.slice(
+		currentPage * gamesPerPage - gamesPerPage,
+		currentPage * gamesPerPage
+	);
 
-	// console.log(currentVideogames)
+	//console.log(currentVideogames)
 
 	useEffect(() => {
 		dispatch(videoGameStartLoading());
@@ -32,20 +34,29 @@ export const Home = () => {
 			<Header displaNav={true} />
 			<Main>
 				<Aside>
-					<AsideControl />
+					<AsideControl setCurrentPage={setCurrentPage}/>
 				</Aside>
 				<Content>
 					<div className={styles.paginationBox}>
 						<div className={styles.pagination}>
-							<button className={styles.btn} onClick={()=> setCurrentPage(currentPage -1)}>Prev</button>
-							<button className={styles.btn} onClick={()=> setCurrentPage(currentPage +1)}>Next</button>
+							<button
+								className={styles.btn}
+								onClick={() => setCurrentPage(currentPage - 1)}
+							>
+								Prev
+							</button>
+							<button
+								className={styles.btn}
+								onClick={() => setCurrentPage(currentPage + 1)}
+							>
+								Next
+							</button>
 						</div>
 					</div>
 					{
 						//TODO:Solucionar cuando no hay resultados
-						currentVideogames && (<CardList videogames={currentVideogames}/>)
+						currentVideogames && <CardList videogames={currentVideogames} />
 					}
-					
 				</Content>
 			</Main>
 		</div>

@@ -51,7 +51,7 @@ export const gamesStartingSearch = (term) => {
 				},
 			});
 			if (response.status === 200) {
-				dispatch(gamesSearchLoaded(response.data))
+				dispatch(gamesSearchLoaded(response.data));
 			}
 		} catch (error) {
 			//TODO: Validar error 500
@@ -61,6 +61,39 @@ export const gamesStartingSearch = (term) => {
 };
 
 const gamesSearchLoaded = (videogames) => ({
-	type:types.videogameSearchLoaded,
-	payload:videogames
+	type: types.videogameSearchLoaded,
+	payload: videogames,
 });
+
+//Filter Genre
+export const gamesFilterGenre = (genreId) => ({
+	type: types.videogameFilterGenre,
+	payload: genreId,
+});
+
+//Filter created
+export const gamesFilterCreated = (created) => ({
+	type: types.videogameFilterCreated,
+	payload: created,
+});
+
+//Filter platforms
+export const gamesFilterPlatforms = (platformId) => ({
+	type: types.videogameFilterPlatform,
+	payload: platformId,
+});
+
+//Order by Name
+export const gamesOrderByName = (order) => ({
+	type: types.videogameOrderByName,
+	payload: order,
+});
+
+//Order by Rating
+export const gamesOrderByRating = (order) => ({
+	type: types.videogameOrderByRating,
+	payload: order,
+});
+
+
+

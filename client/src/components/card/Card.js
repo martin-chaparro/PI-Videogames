@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 
 export const Card = ({id,name,image,genres}) => {
@@ -17,6 +18,9 @@ export const Card = ({id,name,image,genres}) => {
 					}
                     
                 </ul>
+				<div>
+				<Link to={`view/${id}`}>Ver</Link>
+				</div>
             </div>
 		</div>
 	);

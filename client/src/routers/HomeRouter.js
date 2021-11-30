@@ -8,7 +8,7 @@ export const HomeRouter = () => {
 		<div>
 			<Routes>
 				<Route path="/new" element={<NewGame />} />
-				<Route path="/view" element={<ViewGame />} />
+				<Route path="/view/:id" element={<ViewGame />} />
 				<Route path="*" element={<Home />} />
 			</Routes>
 		</div>
