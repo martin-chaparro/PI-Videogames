@@ -39,8 +39,10 @@ class Videogame extends Model {
 								'background_image',
 								'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg'
 							);
+						}else{
+
+							this.setDataValue('background_image', value);
 						}
-						this.setDataValue('background_image', value);
 					},
 				},
 				platforms: {
@@ -60,7 +62,9 @@ class Videogame extends Model {
 	}
 
 	static associate(models) {
-		this.belongsToMany(models.Genre, { through: 'videogames_genres' });
+		this.belongsToMany(models.Genre, {
+			as:'genres', 
+			through: 'videogames_genres' });
 	}
 }
 

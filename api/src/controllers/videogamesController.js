@@ -23,6 +23,7 @@ const getGames = async (request, response) => {
 				},
 				include: {
 					model: Genre,
+					as:'genres',
 					attributes: ['id', 'name'],
 					through: { attributes: [] },
 				},
@@ -49,6 +50,7 @@ const getGames = async (request, response) => {
 			attributes: { exclude: ['createdAt', 'updatedAt', 'description'] },
 			include: {
 				model: Genre,
+				as:'genres',
 				attributes: ['id', 'name'],
 				through: { attributes: [] },
 			},
@@ -91,6 +93,7 @@ const getGame = async (request, response) => {
 				},
 				include: {
 					model: Genre,
+					as:'genres',
 					attributes: ['id', 'name'],
 					through: { attributes: [] },
 				},
