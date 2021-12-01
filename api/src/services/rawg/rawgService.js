@@ -14,7 +14,7 @@ const getAllVideogames = async () => {
 	let totalApiGames = [];
 
 	try {
-		for (let i = 1; i < 6; i++) {
+		for (let i = 1; i <= 5; i++) {
 			videoGamePromises.push(
 				rawgClient.get('/games', {
 					params: {
