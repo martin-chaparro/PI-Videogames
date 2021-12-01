@@ -5,10 +5,11 @@ import { Content } from '../../layout/content/Content';
 import { Header } from '../../layout/header/Header';
 import { Main } from '../../layout/main/Main';
 
-import styles from './Home.module.css';
+//import styles from './Home.module.css';
 import { videoGameStartLoading } from '../../../redux/actions/videogames';
 import { CardList } from '../../cardlist/CardList';
 import { AsideControl } from '../../controls/asidecontrol/AsideControl';
+import { Pagination } from '../../layout/pagination/Pagination';
 
 export const Home = () => {
 	const dispatch = useDispatch();
@@ -34,25 +35,18 @@ export const Home = () => {
 			<Header displaNav={true} />
 			<Main>
 				<Aside>
-					<AsideControl setCurrentPage={setCurrentPage}/>
+					<AsideControl setCurrentPage={setCurrentPage} />
 				</Aside>
 				<Content>
-					<div className={styles.paginationBox}>
-						<div className={styles.pagination}>
-							<button
-								className={styles.btn}
-								onClick={() => setCurrentPage(currentPage - 1)}
-							>
-								Prev
-							</button>
-							<button
-								className={styles.btn}
-								onClick={() => setCurrentPage(currentPage + 1)}
-							>
-								Next
-							</button>
-						</div>
-					</div>
+					{videogames && (
+						<Pagination
+							setCurrentPage={setCurrentPage}
+							currentPage={currentPage}
+							totalRecords={videogames.length}
+							pageLimit={15}
+							pageNeighbours={1}
+						/>
+					)}
 					{
 						//TODO:Solucionar cuando no hay resultados
 						currentVideogames && <CardList videogames={currentVideogames} />
