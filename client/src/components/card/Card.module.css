@@ -1,22 +1,77 @@
 .card {
-    grid-column-end: span 4;
-    background-color: gold;
-    display: flex;
-    flex-direction: column;
+	grid-column-end: span 4;
+	background-color: var(--bg-color);
+	display: flex;
+	flex-direction: column;
+	box-shadow: var(--container-shadow)
+}
+
+.card .box {
+    padding: 15px;
 }
 
 .cardImageContainer {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+    opacity: 0.7;
 }
 
 .cardImageContainer img {
-    width: 100%;
-   height: 20em;
-    
+	width: 100%;
+	height: 20em;
 }
 
-.cardContent{
-    padding: .2em
+.cardContent {
+	padding: 0.6em;
 }
+
+.cardContent .cardTitle{
+    color: var(--color);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.cardContent .cardGenres{
+    color: var(--color);
+    display: flex;
+    margin-top: 1.5em;
+    justify-content: flex-start;
+}
+
+.cardContent .cardGenres ul{
+    display: flex;
+    align-content: space-around;
+    gap: 1em;
+}
+.cardContent .cardGenres li{
+    list-style: none;
+    display: block;
+    padding: 0.5em;
+    font-size: 1em;
+    box-shadow: var(--btn-shadow);
+}
+
+.cardContent .actionBtn{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContent .actionBtn a {
+    display: block;
+    color: var(--color);
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 1em 4em;
+    box-shadow: var(--btn-shadow);
+}
+
+.cardContent .actionBtn a:hover{
+    box-shadow: var(--btn-hover-shadow);
+}
+

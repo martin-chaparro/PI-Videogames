@@ -93,47 +93,86 @@ export const Pagination = ({
 		return range(1, totalPages);
 	};
 
-
-
-
 	if (totalRecords && totalPages > 0) {
 		const pages = fetchPageNumbers(totalPages, currentPage, pageNeighbours);
-        console.log(totalRecords)
 
-        return (
-            <div className={styles.paginationBox}>
-                <ul className={styles.pagination}>
-                {pages.map((page, index) => {
-                  if (page === LEFT_PAGE)
-                    return (
-                      <li key={index}>
-                        <button onClick={handleMoveLeft}>Previous</button>                        
-                      </li>
-                    );
-    
-                  if (page === RIGHT_PAGE)
-                    return (
-                      <li key={index}>
-                            <button onClick={handleMoveRight}>Next</button>
-                      </li>
-                    );
-    
-                  return (
-                    <li
-                      key={index}
-                      className={`${currentPage === page ? "active" : ""}`}
-                    >
-                      <button onClick={e => handleClick(page, e)}>{page}</button>
-                    </li>
-                  );
-                })}
-                </ul>
-            </div>
-        );
+		return (
+			// <div className={styles.paginationContainer}>
+			// 	<div className={styles.paginationBox}>
+			// 		<ul className={styles.pagination}>
+			// 			<li>
+			// 				<span style={{width:'120px'}}>Previous</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>1</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>2</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>3</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>4</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>5</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>6</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>7</span>
+			// 			</li>
+			// 			<li>
+			// 				<span>8</span>
+			// 			</li>
+			// 			<li>
+			// 				<span style={{width:'100px'}}>Next</span>
+			// 			</li>
+			// 		</ul>
+			// 	</div>
+			// </div>
+			<div className={styles.paginationContainer}>
+				<div className={styles.paginationBox}>
+					<ul className={styles.pagination}>
+						{pages.map((page, index) => {
+							if (page === LEFT_PAGE)
+								return (
+									<li key={index}>
+										{/* <button onClick={handleMoveLeft} className="large">
+											Previous
+										</button> */}
+										<span onClick={handleMoveLeft} >Previous</span>
+									</li>
+								);
 
-	}else{
-        return null
-    }
+							if (page === RIGHT_PAGE)
+								return (
+									<li key={index}>
+										{/* <button onClick={handleMoveRight} className="large">
+											Next
+										</button> */}
+										<span onClick={handleMoveRight}>Next</span>
+									</li>
+								);
 
-	
+							return (
+								<li
+									key={index}
+									// className={styles.active}
+									className={currentPage === page ? styles.active : ''}
+								>
+									
+									<span onClick={(e) => handleClick(page, e)}>{page}</span>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+			</div>
+		);
+	} else {
+		return null;
+	}
 };

@@ -1,35 +1,147 @@
 .controlBox {
-	background-color: yellowgreen;
+
 	min-height: calc(90vh - 5em);
 	display: flex;
 	flex-flow: column;
 	flex-wrap: wrap;
 	gap: 1em;
-
+	padding-left: 1em;
+	padding-right: 1em;
+	box-shadow: var(--container-shadow);
 }
 
+.controlBox h3{
+	font-size: 2em;
+	color: var(--color);
+}
+
+
+
 .filterBox {
-	background-color: yellowgreen;
+
 	width: 100%;
 	height: auto;
 	display: flex;
 	flex-wrap: wrap;
-
 }
 
-.filterBox input {
-	font-size: 2em;
+.searchBox {
+	position: relative;
+	width: 100%;
+
+	margin-top: 1em;
+	border-radius: var(--form-border-radio);
+}
+.searchBox input {
+	width: 100%;
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 2px;
+	border-color: transparent;
+	border-radius: var(--form-border-radio);
+	padding: 0.5em 4em 0.5em 0.5em;
+	font-size: 1.5em;
+	background-color: var(--bg-color);
+	box-shadow: var(--btn-active-shadow);
+	color: var(--color)
+}
+.searchBox input::placeholder {
+	color: var(--color)
 }
 
+.searchBox button {
+	position: absolute;
+	font-size: 1.5em;
+	right: 0.5em;
+	top: calc(0.4em + 2px);
+	right: calc(0.4em + 2px);
 
-.filterBox button {
-	font-size: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 9999px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: transparent;
+	background-color: transparent;
+	color: var(--color);
 }
 
-.controlBox label {
-	font-size: 2em;
+.sortNameBox {
+	width: 100%;
 }
 
-.filterBox select {
-	font-size: 2em;
+.sortRatingBox {
+
+	width: 100%;
+}
+
+.filterGenresBox {
+
+	width: 100%;
+}
+
+.filterPlatformsBox {
+
+	width: 100%;
+}
+
+.filterCreatedBox {
+
+	width: 100%;
+}
+
+.checkboxContainer {
+	display: flex;
+	/* gap: 1em; */
+	flex-wrap: wrap;
+	column-gap: 1em;
+}
+
+.checkButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.checkButton label {
+	display: block;
+	width: 100%;
+}
+
+.checkButton label input {
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+
+.checkButton label .btnCheck {
+	/* display: block; */
+	cursor: pointer;
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 0.5em;
+	font-size: 1em;
+	box-shadow: var(--btn-shadow);
+	width: 100%;
+	min-width: 64px;
+	height: 3em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.checkButton label .btnCheck:hover {
+	box-shadow: var(--btn-hover-shadow);
+	color: var(--color);
+}
+
+.checkButton label input:checked ~ .btnCheck {
+	color: var(--color);
+	box-shadow: var(--btn-active-shadow);
+	text-shadow: 0 0 5px var(--color), 0 0 20px var(--color);
 }

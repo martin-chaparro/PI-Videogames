@@ -11,6 +11,7 @@ export const CardList = ({ videogames }) => {
 					name={game.name}
 					image={game.background_image}
 					genres={game.genres}
+					rating={game.rating}
 				/>
 			))}
 		</div>

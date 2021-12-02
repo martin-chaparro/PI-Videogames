@@ -6,7 +6,7 @@ import styles from './Landing.module.css';
 export const Landing = () => {
 	return (
 		<div className="wrapper">
-			<Header />
+			<Header displaNav={true} />
 			<Main>
 				<div className={styles.container}>
 					<button className={styles.btn}>Start</button>

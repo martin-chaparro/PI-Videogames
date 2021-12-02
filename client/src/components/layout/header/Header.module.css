@@ -12,7 +12,7 @@ nav {
 }
 
 .title {
-	grid-column: col-start / span 3;
+	grid-column: col-start / span 2;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,11 +23,61 @@ nav {
 }
 
 .navBar {
-	grid-column: col-start 4 / span 6;
+	grid-column: col-start 3 / span 2;
 	display: inline-flex;
 	flex-wrap: wrap;
 	gap: 1.2em;
 	align-items: center;
+}
+
+
+/* .searchBar {
+	grid-column: col-start 5 / span 4;
+	display: grid;
+	grid-template-columns: repeat(12, [col-start] 1fr);
+	
+}
+
+.searchContainer{
+	grid-column: col-start / span 12;
+	background-color: tomato;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.outerBox{
+	width: 100%;
+	height: 5em;
+	background-color: white;
+	border-radius: 1em;
+	display: flex;
+}
+.inerBox{ 
+	background-color: turquoise;
+	border-radius: 1em;
+	width: 100%;
+	height: 5em;
+	padding: 0.9em;
+}
+.inerBox input{
+	width: 100%;
+	height: 100%;
+	background-color: wheat;
+	font-size: 1.5em;
+	display: block;
+	
+} */
+
+
+
+.contact {
+	grid-column: col-start 9 / span 4;
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	align-items: center;
+	justify-content: flex-end;
+	margin-right: 3em;
 }
 
 .btn {
@@ -35,14 +85,28 @@ nav {
 	background-color: var(--bg-color);
 	border-radius: 0.5em;
 	font-size: 1.5em;
-	box-shadow: var(--box-shadow);
+	box-shadow: var(--btn-shadow);
 	width: 6em;
 	height: 3em;
 }
+.btn:hover {
+	box-shadow: var(--btn-hover-shadow);
+}
+.active {
+	box-shadow: var(--btn-active-shadow);
+	text-shadow: 0 0 5px var(--color), 0 0 20px var(--color);
+}
 
-.contact {
-	grid-column: col-start 10 / span 3;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.btnSocial {
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 9999px;
+	font-size: 2em;
+	box-shadow: var(--btn-shadow);
+	width: 50px;
+	height: 50px;
+	text-align: center;
+}
+.btnSocial:hover {
+	box-shadow: var(--btn-hover-shadow);
 }

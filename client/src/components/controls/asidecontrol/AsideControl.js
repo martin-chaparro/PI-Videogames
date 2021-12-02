@@ -11,18 +11,18 @@ import {
 	genresStartLoading,
 } from '../../../redux/actions/videogames';
 import styles from './AsideControl.module.css';
+import { FaSearch } from 'react-icons/fa';
 
-export const AsideControl = React.memo(({setCurrentPage}) => {
+export const AsideControl = React.memo(({ setCurrentPage }) => {
 	const dispatch = useDispatch();
 	const { genres } = useSelector((state) => state.videogames);
-	const {platforms }= useSelector( state => state.platforms );
-	
+	const { platforms } = useSelector((state) => state.platforms);
 
 	const [inputSearch, setinputSearch] = useState('');
 
 	useEffect(() => {
 		dispatch(genresStartLoading());
-		dispatch(platformsStartLoading())
+		dispatch(platformsStartLoading());
 	}, [dispatch]);
 
 	const handleInputSearch = ({ target }) => {
@@ -35,114 +35,252 @@ export const AsideControl = React.memo(({setCurrentPage}) => {
 		setinputSearch('');
 	};
 
-	const handleRadioGenres = ({target}) => {
-		dispatch(gamesFilterGenre(target.value))
-		setCurrentPage(1)
+	const handleRadioGenres = ({ target }) => {
+		dispatch(gamesFilterGenre(target.value));
+		setCurrentPage(1);
 	};
 
-	const handleRadioCreated = ({target})=>{
-		dispatch(gamesFilterCreated(target.value))
-		setCurrentPage(1)
-	}
+	const handleRadioCreated = ({ target }) => {
+		dispatch(gamesFilterCreated(target.value));
+		setCurrentPage(1);
+	};
 
-	const handleRadioPlatforms= ({target})=>{
-		dispatch(gamesFilterPlatforms(target.value))
-		setCurrentPage(1)
-	}
+	const handleRadioPlatforms = ({ target }) => {
+		dispatch(gamesFilterPlatforms(target.value));
+		setCurrentPage(1);
+	};
 
-	const handleSortName = ({target})=>{
-		
-		dispatch(gamesOrderByName(target.value))
-		setCurrentPage(1)
-	}
+	const handleSortName = ({ target }) => {
+		dispatch(gamesOrderByName(target.value));
+		setCurrentPage(1);
+	};
 
-	const handleSortRating = ({target})=>{
-		
-		dispatch(gamesOrderByRating(target.value))
-		setCurrentPage(1)
-	}
+	const handleSortRating = ({ target }) => {
+		dispatch(gamesOrderByRating(target.value));
+		setCurrentPage(1);
+	};
 
 	return (
 		<div className={styles.controlBox}>
 			<div className={styles.filterBox}>
-				<form onSubmit={handleSearch}>
-					<input
-						placeholder="Search Videogame..."
-						name="inputSearch"
-						value={inputSearch}
-						onChange={handleInputSearch}
-						type="text"
-					/>
+				<div className={styles.searchBox}>
+					<form onSubmit={handleSearch} autoComplete="off">
+						<input
+							placeholder="Search Videogame..."
+							name="inputSearch"
+							value={inputSearch}
+							onChange={handleInputSearch}
+							type="text"
+						/>
 
-					<button type="submit">Buscar</button>
-				</form>
-			</div>
-			<div className={styles.filterBox}>
-				<label htmlFor="orderByName">Sort by Name:</label>
-				<select name="order" id="orderByName" defaultValue="none" onChange={handleSortName}>
-					<option value="none">Unordered</option>
-					<option value="asc">Ascendant</option>
-					<option value="desc">Descendant</option>
-				</select>
-			</div>
-			<div className={styles.filterBox}>
-				<label htmlFor="orderByRating">Sort by Rating:</label>
-				<select name="order" id="orderByRating" defaultValue="none" onChange={handleSortRating}>
-					<option value="none">Unordered</option>
-					<option value="asc">Ascendant</option>
-					<option value="desc">Descendant</option>
-				</select>
-			</div>
-			<label>Genres</label>
-			<div className={styles.filterBox}>
-				<div key={'all'}>
-					<input type="radio" id="Todos" name="genres" value={'all'} onClick={handleRadioGenres} defaultChecked/>
-					<span htmlFor="Todos">Todos</span>
+						<button type="submit">
+							<FaSearch />
+						</button>
+					</form>
 				</div>
-
-				{genres &&
-					genres.map((genre) => (
-						<div key={genre.id}>
-							<input
-								type="radio"
-								id={genre.name}
-								name="genres"
-								value={genre.id}
-								onClick={handleRadioGenres}
-							/>
-							<span htmlFor={genre.name}>{genre.name}</span>
+			</div>
+			<div className={styles.filterBox}>
+				<div className={styles.sortNameBox}>
+					<div>
+						<h3>Sort by Name</h3>
+					</div>
+					<div className={styles.checkboxContainer}>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									id="none"
+									name="orderByName"
+									value="none"
+									onClick={handleSortName}
+									defaultChecked
+								/>
+								<div className={styles.btnCheck}> Unordered </div>
+							</label>
 						</div>
-					))}
-			</div>
-			<label>Created</label> <br />
-			<div className={styles.filterBox}>
-				<input type="radio" id="Todos" name="inDb" value="all" onClick={handleRadioCreated} defaultChecked/>
-				<span htmlFor="Todos">All</span>
-				<input type="radio" id="SI" name="inDb" value="db" onClick={handleRadioCreated} />
-				<span htmlFor="SI">Created</span>
-				<input type="radio" id="NO" name="inDb" value="api" onClick={handleRadioCreated} />
-				<span htmlFor="NO">Api</span>
-			</div>
-			<label>Platforms</label>
-			<div className={styles.filterBox}>
-				<div key={'all'}>
-					<input type="radio" id="All" name="platforms" value={'all'} onClick={handleRadioGenres} defaultChecked/>
-					<span htmlFor="All">All</span>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									id="asc"
+									name="orderByName"
+									value="asc"
+									onClick={handleSortName}
+								/>
+								<div className={styles.btnCheck}> Ascendent </div>
+							</label>
+						</div>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									id="desc"
+									name="orderByName"
+									value="desc"
+									onClick={handleSortName}
+								/>
+								<div className={styles.btnCheck}>Descendent</div>
+							</label>
+						</div>
+					</div>
 				</div>
-
-				{platforms &&
-					platforms.map((platform) => (
-						<div key={platform.id}>
-							<input
-								type="radio"
-								id={platform.name}
-								name="platforms"
-								value={platform.id}
-								onClick={handleRadioPlatforms}
-							/>
-							<span htmlFor={platform.name}>{platform.name}</span>
+			</div>
+			<div className={styles.filterBox}>
+				<div className={styles.sortRatingBox}>
+					<div>
+						<h3>Sort by Rating</h3>
+					</div>
+					<div className={styles.checkboxContainer}>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="orderByRating"
+									value="none"
+									onClick={handleSortRating}
+									defaultChecked
+								/>
+								<div className={styles.btnCheck}>Unordered</div>
+							</label>
 						</div>
-					))}
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="orderByRating"
+									value="asc"
+									onClick={handleSortRating}
+								/>
+								<div className={styles.btnCheck}>Ascendent</div>
+							</label>
+						</div>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="orderByRating"
+									value="desc"
+									onClick={handleSortRating}
+								/>
+								<div className={styles.btnCheck}>Descendent</div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className={styles.filterBox}>
+				<div className={styles.filterGenresBox}>
+					<div>
+						<h3>Genres</h3>
+					</div>
+					<div className={styles.checkboxContainer}>
+						<div key={'all'} className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="genres"
+									value={'all'}
+									onClick={handleRadioGenres}
+									defaultChecked
+								/>
+								<div className={styles.btnCheck}>Todos</div>
+							</label>
+						</div>
+						{genres &&
+							genres.map((genre) => (
+								<div key={genre.id} className={styles.checkButton}>
+									<label>
+										<input
+											type="radio"
+											name="genres"
+											value={genre.id}
+											onClick={handleRadioGenres}
+										/>
+										<div className={styles.btnCheck}>{genre.name}</div>
+									</label>
+								</div>
+							))}
+					</div>
+				</div>
+			</div>
+
+			<div className={styles.filterBox}>
+				<div className={styles.filterPlatformsBox}>
+					<div>
+						<h3>Platforms</h3>
+					</div>
+					<div className={styles.checkboxContainer}>
+						<div key={'all'} className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="platforms"
+									value={'all'}
+									onClick={handleRadioGenres}
+									defaultChecked
+								/>
+								<div className={styles.btnCheck}>All</div>
+							</label>
+						</div>
+						{platforms &&
+							platforms.map((platform) => (
+								<div key={platform.id} className={styles.checkButton}>
+									<label>
+										<input
+											type="radio"
+											name="platforms"
+											value={platform.id}
+											onClick={handleRadioPlatforms}
+										/>
+										<div className={styles.btnCheck}>{platform.name}</div>
+									</label>
+								</div>
+							))}
+					</div>
+				</div>
+			</div>
+			<div className={styles.filterBox}>
+				<div className={styles.filterCreatedBox}>
+					<div>
+						<h3>Created</h3>
+					</div>
+					<div className={styles.checkboxContainer}>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="inDb"
+									value="all"
+									onClick={handleRadioCreated}
+									defaultChecked
+								/>
+								<div className={styles.btnCheck}>All</div>
+							</label>
+						</div>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="inDb"
+									value="db"
+									onClick={handleRadioCreated}
+								/>
+								<div className={styles.btnCheck}>Created</div>
+							</label>
+						</div>
+						<div className={styles.checkButton}>
+							<label>
+								<input
+									type="radio"
+									name="inDb"
+									value="api"
+									onClick={handleRadioCreated}
+								/>
+								<div className={styles.btnCheck}>Api</div>
+							</label>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
