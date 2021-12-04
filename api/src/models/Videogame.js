@@ -26,7 +26,7 @@ class Videogame extends Model {
 				rating: {
 					type: DataTypes.FLOAT,
 					allowNull: true,
-					defaultValue: 0,
+					defaultValue: 1,
 				},
 				background_image: {
 					type: DataTypes.STRING,
