@@ -55,7 +55,9 @@ export const gamesStartingSearch = (term) => {
 			}
 		} catch (error) {
 			//TODO: Validar error 500
-			console.log(error.response.data);
+			if (error.response.status === 404) {
+				dispatch(gamesSearchLoaded([error.response.data]));
+			}
 		}
 	};
 };

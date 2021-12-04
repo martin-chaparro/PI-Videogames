@@ -127,7 +127,7 @@
 	box-shadow: var(--btn-shadow);
 	width: 100%;
 	min-width: 64px;
-	height: 3em;
+	height: 2em;
 	display: flex;
 	align-items: center;
 	justify-content: center;

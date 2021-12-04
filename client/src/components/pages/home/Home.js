@@ -10,6 +10,8 @@ import { videoGameStartLoading } from '../../../redux/actions/videogames';
 import { CardList } from '../../cardlist/CardList';
 import { AsideControl } from '../../controls/asidecontrol/AsideControl';
 import { Pagination } from '../../layout/pagination/Pagination';
+import { HomeLoader } from '../../ui/loaders/homeloader/HomeLoader';
+import { NotFound } from '../../ui/notfound/NotFound';
 
 export const Home = () => {
 	const dispatch = useDispatch();
@@ -38,21 +40,40 @@ export const Home = () => {
 					<AsideControl setCurrentPage={setCurrentPage} />
 				</Aside>
 				<Content>
-					{videogames && (
-						<Pagination
-							setCurrentPage={setCurrentPage}
-							currentPage={currentPage}
-							totalRecords={videogames.length}
-							pageLimit={15}
-							pageNeighbours={1}
-						/>
+					{videogames && videogames.length > 0 ? (
+						videogames[0].msg === 'No se encontraron resultados' ? (
+							<NotFound />
+						) : (
+							<>
+							<Pagination
+								setCurrentPage={setCurrentPage}
+								currentPage={currentPage}
+								totalRecords={videogames.length}
+								pageLimit={15}
+								pageNeighbours={1}
+							/>
+							<CardList videogames={currentVideogames} />
+							</>
+						)
+					) : (
+						<HomeLoader />
 					)}
-					{
-						//TODO:Solucionar cuando no hay resultados
-						currentVideogames && <CardList videogames={currentVideogames} />
-					}
 				</Content>
 			</Main>
 		</div>
 	);
 };
+
+// {videogames && (
+/* <Pagination
+	setCurrentPage={setCurrentPage}
+	currentPage={currentPage}
+	totalRecords={videogames.length}
+	pageLimit={15}
+	pageNeighbours={1}
+/>; */
+// 	)}
+// 	{
+// 		//TODO:Solucionar cuando no hay resultados
+// 		currentVideogames && <CardList videogames={currentVideogames} />
+// 	}

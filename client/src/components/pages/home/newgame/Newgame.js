@@ -7,7 +7,7 @@ import styles from './Newgame.module.css';
 export const NewGame = () => {
 	return (
 		<div className="wrapper">
-			<Header />
+			<Header displaNav={true} />
 			<Main>
 				<div className={styles.formColumn}>
 					<FormNewgame />

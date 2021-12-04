@@ -21,13 +21,16 @@ export const ViewGame = () => {
 
 	return (
 		<div className="wrapper">
-			<Header />
+			<Header displaNav={true}/>
 
 			{videogame && (
 				<Main>
 					<div className={styles.imgColumn}>
 						<div className={styles.imgContainer}>
 							<img src={videogame.background_image} alt={videogame.name} />
+						</div>
+						<div className={styles.actionContainer}>
+							<button>Back</button>
 						</div>
 					</div>
 					<div className={styles.dataColumn}>

@@ -25,10 +25,10 @@ export const videogamesReducer = (state = initialState, action) => {
 				videogames: action.payload,
 			};
 		case types.videogameFilterGenre:
-			let FilteredGenre = [...state.Allvideogames];
+			let filteredGenre = [...state.Allvideogames];
 
 			if (action.payload !== 'all') {
-				FilteredGenre = FilteredGenre.filter((game) =>
+				filteredGenre = filteredGenre.filter((game) =>
 					game.genres.find((genre) => {
 						return parseInt(genre.id) === parseInt(action.payload);
 					})
@@ -36,7 +36,10 @@ export const videogamesReducer = (state = initialState, action) => {
 
 				return {
 					...state,
-					videogames: FilteredGenre,
+					videogames:
+						filteredGenre.length > 0
+							? filteredGenre
+							: [{ msg: 'No se encontraron resultados' }],
 				};
 			}
 			return { ...state, videogames: [...state.Allvideogames] };
@@ -53,12 +56,18 @@ export const videogamesReducer = (state = initialState, action) => {
 				case 'db':
 					return {
 						...state,
-						videogames: FilteredCreated.filter((game) => game.inDb === true),
+						videogames:
+							FilteredCreated.filter((game) => game.inDb === true).length > 0
+								? FilteredCreated.filter((game) => game.inDb === true)
+								: [{ msg: 'No se encontraron resultados' }],
 					};
 				case 'api':
 					return {
 						...state,
-						videogames: FilteredCreated.filter((game) => game.inDb === false),
+						videogames:
+							FilteredCreated.filter((game) => game.inDb === false).length > 0
+								? FilteredCreated.filter((game) => game.inDb === false)
+								: [{ msg: 'No se encontraron resultados' }],
 					};
 
 				default:

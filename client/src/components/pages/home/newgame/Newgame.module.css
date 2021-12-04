@@ -1,6 +1,5 @@
 
 .formColumn{
-    background-color: khaki;
     grid-column: col-start 4 / span 6;
     padding-top: 3em;
 }
