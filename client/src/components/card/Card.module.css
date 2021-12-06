@@ -3,7 +3,16 @@
 	background-color: var(--bg-color);
 	display: flex;
 	flex-direction: column;
-	box-shadow: var(--container-shadow)
+	box-shadow: var(--container-shadow);
+    animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+	from{opacity: 0;}
+    to {
+        opacity: 1;
+
+    }
 }
 
 .card .box {
@@ -15,6 +24,10 @@
 	overflow: hidden;
 	position: relative;
     opacity: 0.7;
+}
+
+.cardImageContainer:hover{
+    opacity: 1;
 }
 
 .cardImageContainer img {

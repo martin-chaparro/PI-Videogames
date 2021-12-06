@@ -1,0 +1,19 @@
+
+
+.container{    
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box {
+    width: 45em;
+    height: 20em;
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: var(--container-shadow)
+}

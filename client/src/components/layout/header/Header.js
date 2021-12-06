@@ -1,8 +1,9 @@
+import React from 'react';
 import styles from './Header.module.css';
 import { Link, NavLink } from 'react-router-dom';
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
 
-export const Header = ({ displaNav = false }) => {
+export const Header = React.memo(({ displaNav = false }) => {
 	return (
 		<header>
 			<nav className="wrapper">
@@ -47,4 +48,4 @@ export const Header = ({ displaNav = false }) => {
 			</nav>
 		</header>
 	);
-};
+});

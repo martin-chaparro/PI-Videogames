@@ -1,0 +1,66 @@
+.modalWrapper {
+	background-color: var(--bg-color);
+	opacity: 0.9;
+	color: var(--color);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modalBox {
+	background-color: var(--bg-color);
+	width: 50em;
+	min-height: 35em;
+	box-shadow: var(--box-shadow);
+	opacity: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--color);
+	padding: 2em;
+	z-index: 9999;
+}
+
+.modalBody {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.icon {
+	color: greenyellow;
+}
+.title {
+	margin-top: 2em;
+	font-size: 2em;
+}
+.description {
+	margin-top: 2em;
+	font-size: 1.5em;
+}
+.modalFooter {
+	width: 100%;
+	display: flex;
+	gap: 2em;
+	justify-content: flex-end;
+}
+
+.modalFooter button {
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 0.5em;
+	font-size: 1.5em;
+	box-shadow: var(--btn-shadow);
+	width: 6em;
+	height: 3em;
+}
+
+.modalFooter .btnR button {
+	color: greenyellow;
+}

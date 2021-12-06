@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import api from '../../services/api';
 import styles from './FormNewgame.module.css';
 
-import { genresStartLoading } from '../../../redux/actions/videogames';
+import { genresStartLoading } from '../../../redux/actions/genres';
 
 import { platformsStartLoading } from '../../../redux/actions/platforms';
+import { showAlertModal } from '../../../redux/actions/ui';
 
 export const FormNewgame = () => {
 	const dispatch = useDispatch();
-	const { genres } = useSelector((state) => state.videogames);
+	const { genres } = useSelector((state) => state.genres);
 	const { platforms } = useSelector((state) => state.platforms);
 
 	useEffect(() => {
@@ -57,7 +58,7 @@ export const FormNewgame = () => {
 				})
 				return false
 			}
-			if(description.trim() === ''){
+			if(released.trim() === ''){
 				setInputError({
 					...inputError,
 					description:'La fecha no puede ir vacia'
@@ -132,7 +133,8 @@ export const FormNewgame = () => {
 
 			try {
 				await api.post('/videogame', formValues);
-				alert('Game created successfully!');
+				//alert('Game created successfully!');
+				dispatch(showAlertModal('success','Se completo la operación','El juego fue creado con exito'))
 				setFormValues(initialFormValues);
 			} catch (error) {
 				console.log(error);

@@ -12,11 +12,13 @@ import { AsideControl } from '../../controls/asidecontrol/AsideControl';
 import { Pagination } from '../../layout/pagination/Pagination';
 import { HomeLoader } from '../../ui/loaders/homeloader/HomeLoader';
 import { NotFound } from '../../ui/notfound/NotFound';
+import { AlertModal } from '../../ui/modals/alerts/AlertModal';
 
 export const Home = () => {
 	const dispatch = useDispatch();
 
 	const { videogames } = useSelector((state) => state.videogames);
+	const { alertModal } = useSelector((state) => state.ui);
 
 	const [currentPage, setCurrentPage] = useState(1);
 	const gamesPerPage = 15;
@@ -40,19 +42,19 @@ export const Home = () => {
 					<AsideControl setCurrentPage={setCurrentPage} />
 				</Aside>
 				<Content>
-					{videogames && videogames.length > 0 ? (
+					{(videogames && videogames.length > 0 )? (
 						videogames[0].msg === 'No se encontraron resultados' ? (
 							<NotFound />
 						) : (
 							<>
-							<Pagination
-								setCurrentPage={setCurrentPage}
-								currentPage={currentPage}
-								totalRecords={videogames.length}
-								pageLimit={15}
-								pageNeighbours={1}
-							/>
-							<CardList videogames={currentVideogames} />
+								<Pagination
+									setCurrentPage={setCurrentPage}
+									currentPage={currentPage}
+									totalRecords={videogames.length}
+									pageLimit={15}
+									pageNeighbours={1}
+								/>
+								<CardList videogames={currentVideogames} />
 							</>
 						)
 					) : (
@@ -60,20 +62,11 @@ export const Home = () => {
 					)}
 				</Content>
 			</Main>
+			{
+				alertModal && (<AlertModal type = {alertModal.type} title={alertModal.title}  msj={alertModal.msj}/>)
+			
+			}
+			{/* <AlertModal /> */}
 		</div>
 	);
 };
-
-// {videogames && (
-/* <Pagination
-	setCurrentPage={setCurrentPage}
-	currentPage={currentPage}
-	totalRecords={videogames.length}
-	pageLimit={15}
-	pageNeighbours={1}
-/>; */
-// 	)}
-// 	{
-// 		//TODO:Solucionar cuando no hay resultados
-// 		currentVideogames && <CardList videogames={currentVideogames} />
-// 	}

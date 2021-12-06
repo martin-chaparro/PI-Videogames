@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { platformsStartLoading } from '../../../redux/actions/platforms';
+import { genresStartLoading } from '../../../redux/actions/genres';
 import {
 	gamesFilterCreated,
 	gamesFilterGenre,
@@ -8,14 +9,13 @@ import {
 	gamesOrderByName,
 	gamesOrderByRating,
 	gamesStartingSearch,
-	genresStartLoading,
 } from '../../../redux/actions/videogames';
 import styles from './AsideControl.module.css';
 import { FaSearch } from 'react-icons/fa';
 
 export const AsideControl = React.memo(({ setCurrentPage }) => {
 	const dispatch = useDispatch();
-	const { genres } = useSelector((state) => state.videogames);
+	const { genres } = useSelector((state) => state.genres);
 	const { platforms } = useSelector((state) => state.platforms);
 
 	const [inputSearch, setinputSearch] = useState('');

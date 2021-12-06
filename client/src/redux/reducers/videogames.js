@@ -3,7 +3,6 @@ import { types } from '../types/videogames';
 const initialState = {
 	Allvideogames: [],
 	videogames: [],
-	genres: [],
 };
 
 export const videogamesReducer = (state = initialState, action) => {
@@ -13,11 +12,6 @@ export const videogamesReducer = (state = initialState, action) => {
 				...state,
 				Allvideogames: action.payload,
 				videogames: action.payload,
-			};
-		case types.genresLoaded:
-			return {
-				...state,
-				genres: action.payload,
 			};
 		case types.videogameSearchLoaded:
 			return {

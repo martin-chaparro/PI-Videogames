@@ -7,6 +7,7 @@ export const videoGameStartLoading = () => {
 	return async (dispatch) => {
 		try {
 			const response = await api.get('/videogames');
+			console.log(response)
 			if (response.status === 200) {
 				dispatch(videogamesLoaded(response.data));
 			}
@@ -19,26 +20,6 @@ export const videoGameStartLoading = () => {
 const videogamesLoaded = (videogames) => ({
 	type: types.videogameLoaded,
 	payload: videogames,
-});
-
-/////Get Genres
-
-export const genresStartLoading = () => {
-	return async (distpach) => {
-		try {
-			const response = await api.get('/genres');
-			if (response.status === 200) {
-				distpach(genresLoaded(response.data));
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-};
-
-const genresLoaded = (genres) => ({
-	type: types.genresLoaded,
-	payload: genres,
 });
 
 ///Get Search

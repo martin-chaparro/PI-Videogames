@@ -7,6 +7,5 @@ export const types ={
     videogameFilterPlatform: '[Videogames] Videogames Filter platform',
     videogameOrderByName: '[Videogames] Videogames Order name',
     videogameOrderByRating: '[Videogames] Videogames Order rating',
-    genresLoaded: '[Videogames] Genres Loaded',
 
 }

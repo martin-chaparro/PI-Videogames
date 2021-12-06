@@ -3,4 +3,13 @@
 	display: grid;
 	grid-template-columns: repeat(12, [col-start] 1fr);
 	gap: 2em;
+	animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+	from{opacity: 0;}
+    to {
+        opacity: 1;
+
+    }
 }

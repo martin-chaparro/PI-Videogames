@@ -17,8 +17,6 @@ export const ViewGame = () => {
 		dispatch(videogameStartLoading(id));
 	}, [dispatch, id]);
 
-	console.log(videogame);
-
 	return (
 		<div className="wrapper">
 			<Header displaNav={true}/>
