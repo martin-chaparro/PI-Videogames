@@ -10,7 +10,11 @@ const getGenres = async (request, response = response) => {
 				exclude:['createdAt','updatedAt']
 			}
 		})
-		return response.status(200).json(genres)
+
+		if (genres.length > 0) {
+			return response.status(200).json(genres)
+		}
+		return response.status(404).json({msg:'No se encuentran generos'})
 		
 	} catch (error) {
 		return response.status(500)

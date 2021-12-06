@@ -1,3 +1,4 @@
+const { json } = require('sequelize/dist');
 const rawgClient = require('./rawgClient');
 
 const getAllGenres = async () => {
@@ -5,7 +6,7 @@ const getAllGenres = async () => {
 		const genres = await rawgClient.get('/genres');
 		return genres.data.results;
 	} catch (error) {
-		console.log(error);
+		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
 	}
 };
 
@@ -54,7 +55,7 @@ const getAllVideogames = async () => {
 			};
 		});
 	} catch (error) {
-		console.log(error);
+		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
 	}
 };
 
@@ -88,7 +89,7 @@ const searchAllGames = async (term) => {
 			};
 		});
 	} catch (error) {
-		console.log(error);
+		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
 	}
 };
 
@@ -118,7 +119,7 @@ const getGame = async (gameId) => {
 			inDb: false,
 		};
 	} catch (error) {
-		console.log(error);
+		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
 	}
 };
 

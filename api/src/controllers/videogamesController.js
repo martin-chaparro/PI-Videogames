@@ -23,7 +23,7 @@ const getGames = async (request, response) => {
 				},
 				include: {
 					model: Genre,
-					as:'genres',
+					as: 'genres',
 					attributes: ['id', 'name'],
 					through: { attributes: [] },
 				},
@@ -39,8 +39,8 @@ const getGames = async (request, response) => {
 
 			return response.status(200).json(totalGames);
 		} catch (error) {
-			console.log(error);
-			return response.status(500).json({ msg: 'Server Error' });
+			const err = JSON.parse(error.message);
+			return response.status(500).json({ msg: 'Server Error', error: err });
 		}
 	}
 
@@ -50,7 +50,7 @@ const getGames = async (request, response) => {
 			attributes: { exclude: ['createdAt', 'updatedAt', 'description'] },
 			include: {
 				model: Genre,
-				as:'genres',
+				as: 'genres',
 				attributes: ['id', 'name'],
 				through: { attributes: [] },
 			},
@@ -66,15 +66,13 @@ const getGames = async (request, response) => {
 		const totalSearchGames = searchDbGames.concat(searchApiGames);
 
 		if (totalSearchGames.length > 0) {
-			return response.status(200).json(totalSearchGames);
-		}else {
+			return response.status(200).json(totalSearchGames.slice(0, 15));
+		} else {
 			return response.status(404).json({ msg: 'No se encontraron resultados' });
-
 		}
-
 	} catch (error) {
-		console.log(error);
-		return response.status(500).json({ msg: 'Server Error' });
+		const err = JSON.parse(error.message);
+		return response.status(500).json({ msg: 'Server Error', error: err });
 	}
 };
 
@@ -93,7 +91,7 @@ const getGame = async (request, response) => {
 				},
 				include: {
 					model: Genre,
-					as:'genres',
+					as: 'genres',
 					attributes: ['id', 'name'],
 					through: { attributes: [] },
 				},
@@ -109,8 +107,8 @@ const getGame = async (request, response) => {
 		const apiGame = await getApiGame(gameId);
 		return response.send(apiGame);
 	} catch (error) {
-		console.log(error);
-		return response.status(404).json({ msg: 'Videogame not found' });
+		const err = JSON.parse(error.message);
+		return response.status(500).json({ msg: 'Server Error', error: err });
 	}
 };
 

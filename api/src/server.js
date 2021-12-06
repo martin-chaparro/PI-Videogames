@@ -75,7 +75,9 @@ class Server {
 			console.log('||--> Seed complete...: <--||');
 
 		} catch (error) {
-			console.log(error)
+			const err = JSON.parse(error.message)
+			console.log('||--> Seed not completed...: <--||')
+			console.log(err)
 		}
 	}
 
