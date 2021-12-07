@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { videogameStartLoading } from '../../../../redux/actions/videogame';
 import { Header } from '../../../layout/header/Header';
 import { Main } from '../../../layout/main/Main';
+import { useNavigate } from "react-router-dom";
 
 import styles from './ViewGame.module.css';
 
@@ -13,9 +14,16 @@ export const ViewGame = () => {
 	const dispatch = useDispatch();
 	const { videogame } = useSelector((state) => state.videogame);
 
+	const navigate = useNavigate();
+
+
 	useEffect(() => {
 		dispatch(videogameStartLoading(id));
 	}, [dispatch, id]);
+
+	const handleBack = ()=>{
+		navigate("/home", { replace: true });
+	}
 
 	return (
 		<div className="wrapper">
@@ -28,7 +36,7 @@ export const ViewGame = () => {
 							<img src={videogame.background_image} alt={videogame.name} />
 						</div>
 						<div className={styles.actionContainer}>
-							<button>Back</button>
+							<button onClick={handleBack}>Back</button>
 						</div>
 					</div>
 					<div className={styles.dataColumn}>
