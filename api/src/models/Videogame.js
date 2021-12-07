@@ -32,12 +32,12 @@ class Videogame extends Model {
 					type: DataTypes.STRING,
 					allowNull: false,
 					defaultValue:
-						'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg',
+						'https://res.cloudinary.com/dm7fla3lz/image/upload/v1638891886/wallpaperflare.com_wallpaper_lrwnbo.jpg',
 					set(value) {
 						if (value === '') {
 							this.setDataValue(
 								'background_image',
-								'https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg'
+								'https://res.cloudinary.com/dm7fla3lz/image/upload/v1638891886/wallpaperflare.com_wallpaper_lrwnbo.jpg'
 							);
 						}else{
 
