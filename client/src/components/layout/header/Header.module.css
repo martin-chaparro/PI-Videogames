@@ -21,6 +21,7 @@ nav {
 .title  a h1 {
 	font-weight: bold;
 	color: var(--color);
+	font-size: 3em;
 }
 
 .navBar {
@@ -56,24 +57,45 @@ nav {
 	width: 6em;
 	height: 3em;
 }
+
+
 .btn:hover {
 	box-shadow: var(--btn-hover-shadow);
+	color: var(--color-resalt);
 }
 .active {
 	box-shadow: var(--btn-active-shadow);
-	text-shadow: 0 0 5px var(--color), 0 0 20px var(--color);
+	color: var(--color-primary);
+	text-shadow: 0 0 5px var(--color-primary), 0 0 20px var(--color-primary);
+}
+
+.active:hover {
+	box-shadow: var(--btn-hover-shadow);
+	color: var(--color-primary);
 }
 
 .btnSocial {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	color: var(--color);
 	background-color: var(--bg-color);
 	border-radius: 9999px;
-	font-size: 2em;
+	font-size: 2.2em;
 	box-shadow: var(--btn-shadow);
-	width: 50px;
-	height: 50px;
+	width: 2.2em;
+	height: 2.2em;
 	text-align: center;
 }
 .btnSocial:hover {
 	box-shadow: var(--btn-hover-shadow);
+}
+
+.btnLinkedin:hover{
+	color: #0e76a8;
+	text-shadow: 0 0 5px #0e76a8, 0 0 20px #0e76a8;
+}
+.btnGithub:hover{
+	color: yellow;
+	text-shadow: 0 0 5px yellow, 0 0 20px yellow;
 }

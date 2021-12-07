@@ -143,7 +143,7 @@ export const FormNewgame = () => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} autoComplete="off">
 			<div className={styles.formBox}>
 				<div className={styles.formField}>
 					<h5>Name: </h5>

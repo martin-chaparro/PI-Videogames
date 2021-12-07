@@ -183,7 +183,7 @@ export const AsideControl = React.memo(({ setCurrentPage }) => {
 									onClick={handleRadioGenres}
 									defaultChecked
 								/>
-								<div className={styles.btnCheck}>Todos</div>
+								<div className={styles.btnCheck}>All</div>
 							</label>
 						</div>
 						{genres &&

@@ -12,7 +12,7 @@
 
 .controlBox h3{
 	font-size: 2em;
-	color: var(--color);
+	color: var(--color-resalt);
 }
 
 
@@ -94,7 +94,6 @@
 
 .checkboxContainer {
 	display: flex;
-	/* gap: 1em; */
 	flex-wrap: wrap;
 	column-gap: 1em;
 }
@@ -118,12 +117,11 @@
 }
 
 .checkButton label .btnCheck {
-	/* display: block; */
 	cursor: pointer;
 	color: var(--color);
 	background-color: var(--bg-color);
 	border-radius: 0.5em;
-	font-size: 1em;
+	font-size: 1.2em;
 	box-shadow: var(--btn-shadow);
 	width: 100%;
 	min-width: 64px;
@@ -137,11 +135,11 @@
 
 .checkButton label .btnCheck:hover {
 	box-shadow: var(--btn-hover-shadow);
-	color: var(--color);
+	color: var(--color-resalt);
 }
 
 .checkButton label input:checked ~ .btnCheck {
-	color: var(--color);
+	color: var(--color-primary);
 	box-shadow: var(--btn-active-shadow);
-	text-shadow: 0 0 5px var(--color), 0 0 20px var(--color);
+	text-shadow: 0 0 5px var(--color-primary), 0 0 20px var(--color-primary);
 }

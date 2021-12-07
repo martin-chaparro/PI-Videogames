@@ -32,18 +32,16 @@ export const Header = React.memo(({ displaNav = false }) => {
 						>
 							New Game
 						</NavLink>
-						{/* <button className={`${styles.btn} ${styles.active}`}>Home</button>
-						<button className={styles.btn}>New Game</button> */}
 					</div>
 				)}
 
 				<div className={styles.contact}>
-					<button className={styles.btnSocial}>
+					<Link className={`${styles.btnSocial} ${styles.btnLinkedin}`} to="#">
 						<FaLinkedinIn />
-					</button>
-					<button className={styles.btnSocial}>
+					</Link>
+					<Link className={`${styles.btnSocial} ${styles.btnGithub}`} to="#">
 						<FaGithub />
-					</button>
+					</Link>
 				</div>
 			</nav>
 		</header>
