@@ -7,7 +7,7 @@ switch (process.env.NODE_ENV) {
 		logger = false;
 		break;
 	case 'test':
-		logger = console.log;
+		logger = false;
 		break;
 	case 'development':
 	default:

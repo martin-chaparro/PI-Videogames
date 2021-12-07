@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./index.js",
     "dev": "nodemon",
-    "test": "mocha"
+    "test": "jest --verbose --detectOpenHandles"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -20,11 +20,10 @@
     "sequelize": "^6.12.0-alpha.1"
   },
   "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^9.1.3",
+    "jest": "^27.4.3",
     "nodemon": "^2.0.15",
     "sequelize-cli": "^6.3.0",
-    "supertest": "^6.1.6",
-    "supertest-session": "^4.1.0"
+    "supertest": "^6.1.3",
+    "supertest-as-promised": "^4.0.2"
   }
 }
