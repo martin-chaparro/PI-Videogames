@@ -7,7 +7,6 @@ export const videoGameStartLoading = () => {
 	return async (dispatch) => {
 		try {
 			const response = await api.get('/videogames');
-			console.log(response)
 			if (response.status === 200) {
 				dispatch(videogamesLoaded(response.data));
 			}

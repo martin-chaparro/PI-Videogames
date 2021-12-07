@@ -46,6 +46,10 @@
     justify-content: space-between;
 }
 
+.cardContent .cardTitle p{
+    color: yellowgreen;
+}
+
 
 .cardContent .cardGenres{
     color: var(--color);
@@ -86,5 +90,6 @@
 
 .cardContent .actionBtn a:hover{
     box-shadow: var(--btn-hover-shadow);
+    color: var(--color-primary);
 }
 

@@ -66,7 +66,6 @@ export const Home = () => {
 				alertModal && (<AlertModal type = {alertModal.type} title={alertModal.title}  msj={alertModal.msj}/>)
 			
 			}
-			{/* <AlertModal /> */}
 		</div>
 	);
 };

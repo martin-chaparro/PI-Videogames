@@ -102,13 +102,13 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 .checkButton label .btnCheck:hover {
 	box-shadow: var(--btn-hover-shadow);
-	color: var(--color);
+	color: var(--color-primary);
 }
 
 .checkButton label input:checked ~ .btnCheck {
-	color: var(--color);
+	color: var(--color-primary);
 	box-shadow: var(--btn-active-shadow);
-	text-shadow: 0 0 5px var(--color), 0 0 20px var(--color);
+	text-shadow: 0 0 5px var(--color-primary), 0 0 20px var(--color-primary);
 }
 
 .submitContainer {

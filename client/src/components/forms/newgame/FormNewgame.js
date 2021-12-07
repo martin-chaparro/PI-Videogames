@@ -7,11 +7,15 @@ import { genresStartLoading } from '../../../redux/actions/genres';
 
 import { platformsStartLoading } from '../../../redux/actions/platforms';
 import { showAlertModal } from '../../../redux/actions/ui';
+import { AlertModal } from '../../ui/modals/alerts/AlertModal'
 
 export const FormNewgame = () => {
 	const dispatch = useDispatch();
 	const { genres } = useSelector((state) => state.genres);
 	const { platforms } = useSelector((state) => state.platforms);
+	
+	const { alertModal } = useSelector((state) => state.ui);
+
 
 	useEffect(() => {
 		dispatch(genresStartLoading());
@@ -274,6 +278,10 @@ export const FormNewgame = () => {
 					/>
 				</div>
 			</div>
+			{
+				alertModal && (<AlertModal type = {alertModal.type} title={alertModal.title}  msj={alertModal.msj}/>)
+			
+			}
 		</form>
 	);
 };

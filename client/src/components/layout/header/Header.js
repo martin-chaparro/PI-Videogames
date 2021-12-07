@@ -36,12 +36,12 @@ export const Header = React.memo(({ displaNav = false }) => {
 				)}
 
 				<div className={styles.contact}>
-					<Link className={`${styles.btnSocial} ${styles.btnLinkedin}`} to="#">
+					<a className={`${styles.btnSocial} ${styles.btnLinkedin}`} href="https://github.com/martin-chaparro" target="_blank" rel="noreferrer">
 						<FaLinkedinIn />
-					</Link>
-					<Link className={`${styles.btnSocial} ${styles.btnGithub}`} to="#">
+					</a>
+					<a className={`${styles.btnSocial} ${styles.btnGithub}`} href="https://www.linkedin.com/in/mchaparro/" target="_blank" rel="noreferrer">
 						<FaGithub />
-					</Link>
+					</a>
 				</div>
 			</nav>
 		</header>

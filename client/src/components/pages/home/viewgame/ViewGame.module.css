@@ -38,6 +38,7 @@
 
 .actionContainer button:hover{
     box-shadow: var(--btn-hover-shadow);
+    color: var(--color-primary);
 }
 
 
@@ -57,6 +58,10 @@
 .dataContainer p{
     margin-top: .5em;
     margin-bottom: .5em;
+}
+
+.dataContainer h3{
+    color: var(--color-resalt);
 }
 
 .dataContainer ul{

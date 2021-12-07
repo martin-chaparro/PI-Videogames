@@ -42,16 +42,20 @@
 	cursor: pointer;
 }
 
-.pagination li.active{
+.pagination li.active {
 	box-shadow: var(--btn-active-shadow);
-  }
-  .pagination li.active span{
+}
+.pagination li.active span {
 	font-size: 17px;
-	color: var(--color);
-	text-shadow: 0 0 5px var(--color), 0 0 20px var(--color)
-  }
+	color: var(--color-primary);
+	text-shadow: 0 0 5px var(--color-primary), 0 0 20px var(--color-primary);
+}
 
-.pagination li:hover{
+.pagination li span:hover {
+	color: var(--color-primary);
+}
+
+.pagination li:hover {
 	box-shadow: var(--btn-hover-shadow);
 }
 
