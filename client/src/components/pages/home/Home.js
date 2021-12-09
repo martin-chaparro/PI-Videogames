@@ -5,7 +5,7 @@ import { Content } from '../../layout/content/Content';
 import { Header } from '../../layout/header/Header';
 import { Main } from '../../layout/main/Main';
 
-//import styles from './Home.module.css';
+
 import { videoGameStartLoading } from '../../../redux/actions/videogames';
 import { CardList } from '../../cardlist/CardList';
 import { AsideControl } from '../../controls/asidecontrol/AsideControl';
@@ -27,8 +27,6 @@ export const Home = () => {
 		currentPage * gamesPerPage - gamesPerPage,
 		currentPage * gamesPerPage
 	);
-
-	//console.log(currentVideogames)
 
 	useEffect(() => {
 		dispatch(videoGameStartLoading());

@@ -4,13 +4,16 @@ import styles from './AlertModal.module.css';
 import { MdDone, MdDangerous } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { closeAlertModal } from '../../../../redux/actions/ui';
+import { useNavigate } from 'react-router';
 
 export const AlertModal = ({ type = 'success', title='Juego creado con exito', msj='' }) => {
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleClose = ()=>{
 		dispatch(closeAlertModal())
+		navigate("/home", { replace: true });
 	}
 
 	return (

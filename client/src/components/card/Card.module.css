@@ -50,6 +50,9 @@
     color: yellowgreen;
 }
 
+.cardContent .cardTitle h3{
+    font-size: 1.5em;
+}
 
 .cardContent .cardGenres{
     color: var(--color);

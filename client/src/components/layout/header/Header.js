@@ -9,7 +9,7 @@ export const Header = React.memo(({ displaNav = false }) => {
 			<nav className="wrapper">
 				<div className={styles.title}>
 					<Link to="/">
-						<h1>VideoGame App</h1>
+						<h1>VideoGame <span>App</span></h1>
 					</Link>
 				</div>
 				{displaNav && (

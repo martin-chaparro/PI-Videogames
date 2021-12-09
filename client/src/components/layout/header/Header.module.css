@@ -24,6 +24,11 @@ nav {
 	font-size: 3em;
 }
 
+.title span {
+	color: var(--color-primary);
+	text-transform: uppercase;
+}
+
 .navBar {
 	grid-column: col-start 4 / span 5;
 	display: inline-flex;

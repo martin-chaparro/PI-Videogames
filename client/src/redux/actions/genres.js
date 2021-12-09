@@ -1,4 +1,4 @@
-import api from '../../components/services/api';
+import api from '../../services/api';
 import { types } from '../types/genres';
 
 /////Get Genres

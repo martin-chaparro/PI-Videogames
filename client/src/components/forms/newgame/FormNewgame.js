@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import api from '../../services/api';
+import api from '../../../services/api';
 import styles from './FormNewgame.module.css';
 
 import { genresStartLoading } from '../../../redux/actions/genres';
