@@ -11,7 +11,7 @@ switch (process.env.NODE_ENV) {
 		break;
 	case 'development':
 	default:
-		logger = console.log;
+		logger = false;
 		break;
 }
 module.exports = {
