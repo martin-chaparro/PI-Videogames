@@ -23,7 +23,7 @@ class Server {
 		this.routes();
 	}
 
-	// express instance getter
+	// express instance
 	getExpressInstance() {
 		return this.app;
 	}

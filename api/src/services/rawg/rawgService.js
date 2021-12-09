@@ -6,7 +6,13 @@ const getAllGenres = async () => {
 		const genres = await rawgClient.get('/genres');
 		return genres.data.results;
 	} catch (error) {
-		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
+		throw new Error(
+			JSON.stringify({
+				from: 'API Videogames',
+				status: error.response.status,
+				statusText: error.response.statusText,
+			})
+		);
 	}
 };
 
@@ -55,7 +61,13 @@ const getAllVideogames = async () => {
 			};
 		});
 	} catch (error) {
-		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
+		throw new Error(
+			JSON.stringify({
+				from: 'API Videogames',
+				status: error.response.status,
+				statusText: error.response.statusText,
+			})
+		);
 	}
 };
 
@@ -89,7 +101,13 @@ const searchAllGames = async (term) => {
 			};
 		});
 	} catch (error) {
-		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
+		throw new Error(
+			JSON.stringify({
+				from: 'API Videogames',
+				status: error.response.status,
+				statusText: error.response.statusText,
+			})
+		);
 	}
 };
 
@@ -119,7 +137,13 @@ const getGame = async (gameId) => {
 			inDb: false,
 		};
 	} catch (error) {
-		throw new Error(JSON.stringify({from:'API Videogames',status:error.response.status, statusText:error.response.statusText}))
+		throw new Error(
+			JSON.stringify({
+				from: 'API Videogames',
+				status: error.response.status,
+				statusText: error.response.statusText,
+			})
+		);
 	}
 };
 
