@@ -1,7 +1,7 @@
 import { types } from '../types/ui';
 
 const initialState = {
-	alertModal: true,
+	alertModal: false,
 };
 
 export const uiReducer = (state = initialState, action) => {
