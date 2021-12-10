@@ -36,7 +36,8 @@ export const FormNewgame = () => {
 
 	const { name, description, released, rating, background_image } = formValues;
 
-	const [inputError, setInputError] = useState({
+
+	const initialInputError = {
 		name: null,
 		description: null,
 		released: null,
@@ -44,41 +45,50 @@ export const FormNewgame = () => {
 		background_image: null,
 		genres: null,
 		platforms: null,
-	});
+	}
 
-	const validateFields = ({ name, description, genres, platforms,released }) => {
+	const [inputError, setInputError] = useState(initialInputError);
+
+	const validateFields = ({ name, description, genres, platforms,released,rating }) => {
 		
 			if(name.trim() === ''){
 				setInputError({
-					...inputError,
+					inputError:{...initialInputError},
 					name:'El nombre no puede ir Vacio'
 				})
 				return false
 			}
 			if(description.trim() === ''){
 				setInputError({
-					...inputError,
+					inputError:{...initialInputError},
 					description:'La descripcion no pude ir vacia'
 				})
 				return false
 			}
 			if(released.trim() === ''){
 				setInputError({
-					...inputError,
+					inputError:{...initialInputError},
 					description:'La fecha no puede ir vacia'
+				})
+				return false
+			}
+			if(rating < 0){
+				setInputError({
+					inputError:{...initialInputError},
+					rating:'El rating tiene que ser mayor a'
 				})
 				return false
 			}
 			if(genres.length === 0 ){
 				setInputError({
-					...inputError,
+					inputError:{...initialInputError},
 					genres:'Tiene que seleccionar al menos un genero'
 				})
 				return false
 			}
 			if(platforms.length === 0){
 				setInputError({
-					...inputError,
+					inputError:{...initialInputError},
 					platforms:'Tiene que seleccionar al menos una platafroma'
 				})
 				return false
@@ -195,8 +205,6 @@ export const FormNewgame = () => {
 					<h5>Rating: </h5>
 					<input
 						type="number"
-						min="0"
-						max="5"
 						step="any"
 						name="rating"
 						value={rating}
