@@ -1,0 +1,13 @@
+.content {
+	/* background-color: coral; */
+	grid-column: col-start 4 / span 10;
+	padding-top: 3em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 2em;
+}
+
+.contentBox{
+	/* background-color: dimgray; */
+	min-height: calc(90vh - 5em);
+}

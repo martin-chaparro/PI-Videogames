@@ -1,0 +1,106 @@
+header {
+	background-color: var(--bg-color);
+	grid-column: col-start / span 12;
+	height: 10vh;
+}
+
+nav {
+	width: 100%;
+	box-shadow: var(--box-shadow);
+	height: 10vh;
+	color: var(--color);
+}
+
+.title {
+	grid-column: col-start / span 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.title  a h1 {
+	font-weight: bold;
+	color: var(--color);
+	font-size: 3em;
+}
+
+.title span {
+	color: var(--color-primary);
+	text-transform: uppercase;
+}
+
+.navBar {
+	grid-column: col-start 4 / span 5;
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 1.2em;
+	align-items: center;
+}
+
+
+
+.contact {
+	grid-column: col-start 9 / span 4;
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	align-items: center;
+	justify-content: flex-end;
+	margin-right: 3em;
+}
+
+.btn {
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 0.5em;
+	font-size: 1.5em;
+	box-shadow: var(--btn-shadow);
+	width: 6em;
+	height: 3em;
+}
+
+
+.btn:hover {
+	box-shadow: var(--btn-hover-shadow);
+	color: var(--color-resalt);
+}
+.active {
+	box-shadow: var(--btn-active-shadow);
+	color: var(--color-primary);
+	text-shadow: 0 0 5px var(--color-primary), 0 0 20px var(--color-primary);
+}
+
+.active:hover {
+	box-shadow: var(--btn-hover-shadow);
+	color: var(--color-primary);
+}
+
+.btnSocial {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 9999px;
+	font-size: 2.2em;
+	box-shadow: var(--btn-shadow);
+	width: 2.2em;
+	height: 2.2em;
+	text-align: center;
+}
+.btnSocial:hover {
+	box-shadow: var(--btn-hover-shadow);
+}
+
+.btnLinkedin:hover{
+	color: #0e76a8;
+	text-shadow: 0 0 5px #0e76a8, 0 0 20px #0e76a8;
+}
+.btnGithub:hover{
+	color: yellow;
+	text-shadow: 0 0 5px yellow, 0 0 20px yellow;
+}

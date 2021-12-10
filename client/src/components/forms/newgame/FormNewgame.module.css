@@ -1,0 +1,161 @@
+.formBox {
+	font-size: 1.2em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	padding-left: 1.3em;
+	padding-right: 2em;
+	padding-top: 2em;
+	box-shadow: var(--container-shadow);
+}
+
+.formBox h5 {
+	color: var(--color);
+	margin-bottom: 0.3em;
+	font-size: 1.5em;
+}
+
+.formBox input[type='text'],
+input[type='number'],
+input[type='date'] {
+	width: 50%;
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 2px;
+	border-color: transparent;
+	border-radius: var(--form-border-radio);
+	padding: 0.5em 0.5em 0.5em 1em;
+	background-color: var(--bg-color);
+	box-shadow: var(--btn-active-shadow);
+	color: var(--color);
+	font-size: 1.2em;
+}
+
+input[type='date'] {
+	width: 30%;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+	/* border-radius: 4px;
+	margin-right: 2px; */
+	filter: invert(1);
+}
+
+.formBox textarea {
+	background-color: var(--bg-color);
+	box-shadow: var(--btn-active-shadow);
+	color: var(--color);
+	padding: 0.5em 0.5em 0.5em 1em;
+	border-style: solid;
+	border-width: 2px;
+	border-color: transparent;
+	width: 50%;
+	font-size: 1.2em;
+}
+
+::placeholder {
+	color: var(--color);
+}
+
+.checkboxContainer {
+	display: flex;
+	/* gap: 1em; */
+	flex-wrap: wrap;
+	column-gap: 1em;
+}
+
+.checkButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.checkButton label {
+	display: block;
+	width: 100%;
+}
+
+.checkButton label input {
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+
+.checkButton label .btnCheck {
+	/* display: block; */
+	cursor: pointer;
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 0.5em;
+	font-size: 1em;
+	box-shadow: var(--btn-shadow);
+	width: 100%;
+	min-width: 64px;
+	height: 3em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.checkButton label .btnCheck:hover {
+	box-shadow: var(--btn-hover-shadow);
+	color: var(--color-primary);
+}
+
+.checkButton label input:checked ~ .btnCheck {
+	color: var(--color-primary);
+	box-shadow: var(--btn-active-shadow);
+	text-shadow: 0 0 5px var(--color-primary), 0 0 20px var(--color-primary);
+}
+
+.submitContainer {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	display: flex;
+	justify-content: center;
+}
+
+.submitContainer .btnSubmit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color);
+	background-color: var(--bg-color);
+	border-radius: 0.5em;
+	font-size: 1.5em;
+	box-shadow: var(--btn-shadow);
+	width: 10em;
+	height: 3em;
+}
+.submitContainer .btnSubmit:hover {
+	box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+		2px 2px 6px rgba(0, 0, 0, 0.8),
+		inset -2px -2px 10px rgba(255, 255, 255, 0.1),
+		inset 2px 2px 10px rgba(0, 0, 0, 0.9);
+	background-color: rgba(246, 139, 31, 0.8);
+}
+
+.fieldErrorText,
+.fieldErrorCheck {
+	color: tomato;
+	font-weight: bolder;
+	display: block;
+}
+
+.fieldErrorText {
+	margin-top: 0.5em;
+	margin-left: 1em;
+}
+
+.fieldErrorCheck {
+	margin-top: 1em;
+	margin-left: 1em;
+}
+
+.formField {
+	display: flex;
+	flex-direction: column;
+}
